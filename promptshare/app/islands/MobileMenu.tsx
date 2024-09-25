@@ -9,7 +9,12 @@ export default function MobileMenu() {
 
   return (
     <div className="dropdown dropdown-end md:hidden">
-      <button onClick={toggleMenu} className="btn btn-square btn-ghost">
+      <button 
+        onClick={toggleMenu} 
+        className="btn btn-square btn-ghost"
+        aria-label="Toggle mobile menu"
+        aria-expanded={isOpen}
+      >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
       {isOpen && (

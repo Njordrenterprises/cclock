@@ -3,10 +3,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode client && vite build",
+    "build": "vite build --mode client && vite build && npm run compress",
     "preview": "wrangler pages dev",
     "deploy": "$npm_execpath run build && wrangler pages deploy",
-    "build:css": "tailwindcss -i ./styles.css -o ./app/styles.css --watch"
+    "build:css": "tailwindcss -i ./styles.css -o ./app/styles.css --watch",
+    "compress": "find dist -type f -regex '.*\\.\\(js\\|css\\|html\\|svg\\)$' -exec gzip -9 -k {} \\; -exec brotli -9 -k {} \\;"
   },
   "private": true,
   "dependencies": {
@@ -18,11 +19,13 @@
     "@hono/vite-build": "^1.0.0",
     "@hono/vite-dev-server": "^0.15.1",
     "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
     "daisyui": "^4.12.10",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "typescript": "~5.5.3",
     "vite": "^5.2.12",
+    "vite-plugin-compression": "^0.5.1",
     "wrangler": "^3.57.2"
   }
 }

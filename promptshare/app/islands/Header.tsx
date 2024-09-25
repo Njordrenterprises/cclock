@@ -6,7 +6,7 @@ export default function Header() {
     <header className="bg-base-200 shadow-lg relative z-40">
       <nav className="navbar container mx-auto px-4">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">Contractor Clock</a>
+          <a href="/" className="btn btn-ghost text-xl">Contractor Clock</a>
         </div>
         <div className="flex-none hidden md:flex items-center">
           <ul className="menu menu-horizontal px-1">
