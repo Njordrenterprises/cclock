@@ -1,11 +1,10 @@
 import { createRoute } from 'honox/factory'
 import SignInSignUp from '../islands/SignInSignup'
-import Header from '../components/Header'
-import Counter from '../islands/counter'
+import Header from '../islands/Header'
 
 export default createRoute((c) => {
   return c.render(
-    <div className="min-h-screen bg-base-300">
+    <div className="min-h-screen bg-base-300 theme-transition">
       <Header />
       <main>
         <section className="hero bg-base-100 py-10 sm:py-20">

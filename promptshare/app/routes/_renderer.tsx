@@ -14,7 +14,7 @@ export default jsxRenderer(({ children, title }) => {
         <Style />
         <link href="/app/styles.css" rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <body className="min-h-screen bg-base-300 theme-transition">{children}</body>
     </html>
   )
 })

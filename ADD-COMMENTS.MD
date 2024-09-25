@@ -20,6 +20,17 @@ This application is a time tracking system for contractors and freelancers, buil
 
 - Tailwind CSS is used for utility-based styling
 - DaisyUI provides additional components and theme support
+- Light/dark mode theming is implemented using the `data-theme` attribute on the `<html>` element
+- The selected theme is persisted in `localStorage` and applied on the client-side
+- The `ThemeToggle` component handles updating the theme state, `localStorage`, and the `data-theme` attribute when toggled
+- On the server-side render, a fallback theme value of 'synthwave' is used to avoid accessing `localStorage`
+- The theme transition effect is applied to the entire app by targeting the `html` element in the CSS styles
+- The transition includes both `color` and `background-color` properties for a consistent effect across text and background
+
+## Client-side Hydration
+
+- The `ThemeToggle` component is an island component, which means it is hydrated on the client-side after the initial server-side render
+- This allows the component to access `localStorage` and update the theme based on user preferences without causing errors on the server-side
 
 ## TypeScript Configuration
 

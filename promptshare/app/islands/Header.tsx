@@ -1,4 +1,5 @@
-import MobileMenu from '../islands/MobileMenu'
+import MobileMenu from './MobileMenu'
+import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   return (
@@ -14,6 +15,7 @@ export default function Header() {
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
+        <ThemeToggle />
         <MobileMenu />
       </nav>
     </header>

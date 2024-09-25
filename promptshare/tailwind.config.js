@@ -4,7 +4,6 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "./styles.css"
   ],
   theme: {
     extend: {},
@@ -13,6 +12,6 @@ module.exports = {
     require('daisyui')
   ],
   daisyui: {
-    themes: ["synthwave"],
+    themes: ["light", "synthwave"],
   },
 }
