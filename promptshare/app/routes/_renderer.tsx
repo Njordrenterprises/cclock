@@ -12,6 +12,7 @@ export default jsxRenderer(({ children, title }) => {
         <link rel="icon" href="/favicon.ico" />
         <Script src="/app/client.ts" async />
         <Style />
+        <link href="/app/styles.css" rel="stylesheet" />
       </head>
       <body>{children}</body>
     </html>
