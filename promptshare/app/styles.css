@@ -5,4 +5,30 @@
 
 html {
   transition: color 0.5s ease, background-color 0.5s ease;
+  scroll-behavior: smooth;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+@media (max-width: 1024px) {
+  .hide-scrollbar {
+    overflow-x: auto;
+  }
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .backdrop-blur-md, .backdrop-blur-lg, .backdrop-blur-sm {
+    backdrop-filter: blur(10px);
+  }
+}
+
+body {
+  overflow-y: scroll;
 }

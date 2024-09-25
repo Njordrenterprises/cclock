@@ -1,6 +1,7 @@
 import { createRoute } from 'honox/factory'
 import SignInSignUp from '../islands/SignInSignup'
 import Header from '../islands/Header'
+import FeatureCards from '../components/FeatureCards'
 
 export default createRoute((c) => {
   return c.render(
@@ -15,9 +16,17 @@ export default createRoute((c) => {
                 <span>Time Tracking</span>
               </h1>
               <p className="text-lg mb-6">Effortless timekeeping for smart contractors and freelancers.</p>
-              <SignInSignUp />
+              <SignInSignUp id="signup" />
             </div>
           </div>
+        </section>
+
+        <FeatureCards />
+
+        <section className="py-12 bg-base-100 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to get started?</h2>
+          <p className="mb-6">Sign up now and start tracking your time efficiently!</p>
+          <a href="#signup" className="btn btn-primary btn-lg">Sign Up Now</a>
         </section>
 
         {/* Rest of the content */}

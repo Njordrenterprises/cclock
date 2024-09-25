@@ -32,7 +32,7 @@ export default function ThemeToggle() {
   return (
     <button 
       onClick={toggleTheme} 
-      className="btn btn-ghost"
+      className="btn btn-ghost bg-base-100 bg-opacity-30 backdrop-blur-sm"
       aria-label={`Switch to ${theme === 'synthwave' ? 'light' : 'dark'} mode`}
       title={`Switch to ${theme === 'synthwave' ? 'light' : 'dark'} mode`}
     >

@@ -3,7 +3,7 @@ import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   return (
-    <header className="bg-base-200 shadow-lg relative z-40">
+    <header className="fixed top-0 left-0 right-0 bg-base-200 bg-opacity-70 backdrop-blur-md shadow-lg z-50">
       <nav className="navbar container mx-auto px-4">
         <div className="flex-1">
           <a href="/" className="btn btn-ghost text-xl">Contractor Clock</a>
