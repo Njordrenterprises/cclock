@@ -5,8 +5,10 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme') || 'synthwave'
-    setTheme(storedTheme)
-    document.documentElement.setAttribute('data-theme', storedTheme)
+    if (storedTheme !== theme) {
+      setTheme(storedTheme)
+      document.documentElement.setAttribute('data-theme', storedTheme)
+    }
 
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === 'theme') {
