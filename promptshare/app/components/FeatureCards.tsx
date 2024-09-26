@@ -1,4 +1,4 @@
-import { FC } from 'hono/jsx'
+import { FC, useEffect, useRef } from 'hono/jsx'
 
 const features = [
   {
@@ -27,22 +27,57 @@ const features = [
   }
 ]
 
-const FeatureCard: FC<{ title: string; description: string }> = ({ title, description }) => (
-  <div className="card bg-base-100 bg-opacity-30 backdrop-blur-lg shadow-xl mb-4">
-    <div className="card-body">
-      <h2 className="card-title">{title}</h2>
-      <p>{description}</p>
+interface FeatureCardProps {
+  title: string;
+  description: string;
+  [key: string]: any;  // Allow any additional props
+}
+
+const FeatureCard: FC<FeatureCardProps> = ({ title, description }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className="card bg-base-100 shadow-xl transition-all duration-300 ease-in-out hover:bg-primary hover:text-primary-content"
+    >
+      <div className="card-body">
+        <h2 className="card-title">{title}</h2>
+        <p>{description}</p>
+      </div>
     </div>
-  </div>
-)
+  );
+};
 
 const FeatureCards: FC = () => (
-  <section className="py-12 bg-base-100">
-    <h2 className="text-3xl font-bold text-center mb-8">Why Choose Contractor Clock?</h2>
+  <section id="features" className="py-12 bg-base-100">
+    <h2 className="text-3xl font-bold text-center mb-8">Why?</h2>
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {features.map((feature, index) => (
-          <FeatureCard key={index} title={feature.title} description={feature.description} />
+          <FeatureCard key={index} {...feature} />
         ))}
       </div>
     </div>

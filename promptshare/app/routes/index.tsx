@@ -26,7 +26,7 @@ export default createRoute((c) => {
         <section className="py-12 bg-base-100 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to get started?</h2>
           <p className="mb-6">Sign up now and start tracking your time efficiently!</p>
-          <a href="#signup" className="btn btn-primary btn-lg">Sign Up Now</a>
+          <a href="#" className="btn btn-primary btn-lg" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }}>Sign Up Now</a>
         </section>
 
         {/* Rest of the content */}

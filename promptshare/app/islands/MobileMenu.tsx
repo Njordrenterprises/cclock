@@ -19,9 +19,9 @@ export default function MobileMenu() {
       </button>
       {isOpen && (
         <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box">
-          <li><a href="#features" className="px-4 py-2">Features</a></li>
-          <li><a href="#pricing" className="px-4 py-2">Pricing</a></li>
-          <li><a href="#contact" className="px-4 py-2">Contact</a></li>
+          <li><a href="/#features" className="px-4 py-2">Features</a></li>
+          <li><a href="/pricing" className="px-4 py-2">Pricing</a></li>
+          <li><a href="/contact" className="px-4 py-2">Contact</a></li>
         </ul>
       )}
     </div>
