@@ -9,10 +9,19 @@ export default defineConfig({
     honox({ devServer: { adapter } }),
     build(),
     viteCompression({ algorithm: 'gzip' }),
-    viteCompression({ algorithm: 'brotliCompress', ext: '.br' })
+    viteCompression({ algorithm: 'brotliCompress', ext: '.br' }),
   ],
+  build: {
+    minify: 'esbuild',
+    cssMinify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
   server: {
-    host: '0.0.0.0', // or specify your Tailscale IP, e.g., '100.x.y.z'
+    host: '0.0.0.0',
     port: 5173,
   },
 });

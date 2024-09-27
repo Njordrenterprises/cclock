@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'hono/jsx'
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState('synthwave')
+  const [theme, setTheme] = useState('light')
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme') || 'synthwave'
+    const storedTheme = localStorage.getItem('theme') || 'light'
     if (storedTheme !== theme) {
       setTheme(storedTheme)
       document.documentElement.setAttribute('data-theme', storedTheme)

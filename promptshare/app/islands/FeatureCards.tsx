@@ -30,7 +30,7 @@ const features = [
 interface FeatureCardProps {
   title: string;
   description: string;
-  [key: string]: any;  // Allow any additional props
+  key: number;
 }
 
 const FeatureCard: FC<FeatureCardProps> = ({ title, description }) => {
@@ -61,11 +61,11 @@ const FeatureCard: FC<FeatureCardProps> = ({ title, description }) => {
   return (
     <div
       ref={cardRef}
-      className="card bg-base-100 shadow-xl transition-all duration-300 ease-in-out hover:bg-primary hover:text-primary-content"
+      className="card bg-base-100 shadow-xl transition-all duration-500 ease-in-out mb-2 w-full max-w-md mx-auto feature-card hover:scale-105"
     >
-      <div className="card-body">
-        <h2 className="card-title">{title}</h2>
-        <p>{description}</p>
+      <div className="card-body p-8">
+        <h2 className="card-title text-2xl mb-4">{title}</h2>
+        <p className="text-lg">{description}</p>
       </div>
     </div>
   );
@@ -73,15 +73,15 @@ const FeatureCard: FC<FeatureCardProps> = ({ title, description }) => {
 
 const FeatureCards: FC = () => (
   <section id="features" className="py-12 bg-base-100">
-    <h2 className="text-3xl font-bold text-center mb-8">Why?</h2>
+    <h2 className="text-3xl font-bold text-center mb-20 mt-1">Why?</h2>
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="flex flex-col items-center gap-4">
         {features.map((feature, index) => (
           <FeatureCard key={index} {...feature} />
         ))}
       </div>
     </div>
   </section>
-)
+);
 
-export default FeatureCards
+export default FeatureCards;

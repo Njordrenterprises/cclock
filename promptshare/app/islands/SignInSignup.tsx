@@ -1,21 +1,22 @@
-import { useState } from 'hono/jsx'
+import { useState, useRef } from 'hono/jsx'
 
 export default function SignInSignUp({ id }: { id?: string }) {
-  const [isSignIn, setIsSignIn] = useState(true)
+  const [isSignIn, setIsSignIn] = useState(true);
+  const emailInputRef = useRef<HTMLInputElement>(null);
 
   const toggleForm = () => {
-    setIsSignIn(!isSignIn)
-  }
+    setIsSignIn(!isSignIn);
+  };
 
   return (
-    <div id={id} className="card bg-base-200 shadow-xl w-full max-w-sm mx-auto">
+    <div id={id} className="card bg-base-200 shadow-xl w-full max-w-sm mx-auto mb-4">
       <div className="card-body p-4 sm:p-6">
         <h2 className="card-title text-2xl sm:text-3xl mb-4">{isSignIn ? 'Sign In' : 'Sign Up'}</h2>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" placeholder="Email" className="input input-bordered w-full" />
+          <input ref={emailInputRef} type="email" placeholder="Email" className="input input-bordered w-full" />
         </div>
         <div className="form-control mt-2">
           <label className="label">
@@ -42,5 +43,5 @@ export default function SignInSignUp({ id }: { id?: string }) {
         </p>
       </div>
     </div>
-  )
+  );
 }

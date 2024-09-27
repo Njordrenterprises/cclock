@@ -4,12 +4,19 @@ import { Script } from 'honox/server'
 
 export default jsxRenderer(({ children, title }) => {
   return (
-    <html lang="en" data-theme="synthwave">
+    <html lang="en">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
+        <script dangerouslySetInnerHTML={{__html: `
+          (function() {
+            var theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.classList.add('theme-' + theme);
+          })();
+        `}} />
         <style>{`
           html, body { height: 100%; min-height: 100vh; }
           body { display: flex; flex-direction: column; }
@@ -29,13 +36,6 @@ export default jsxRenderer(({ children, title }) => {
       </head>
       <body>
         {children}
-        <script dangerouslySetInnerHTML={{__html: `
-          document.addEventListener('DOMContentLoaded', function() {
-            var theme = localStorage.getItem('theme') || 'synthwave';
-            document.documentElement.setAttribute('data-theme', theme);
-            document.body.className = 'bg-base-300 theme-transition min-h-screen flex flex-col';
-          });
-        `}} />
         <Script src="/app/client.ts" />
       </body>
     </html>

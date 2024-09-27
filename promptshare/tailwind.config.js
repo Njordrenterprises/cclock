@@ -12,10 +12,4 @@ module.exports = {
   daisyui: {
     themes: ["light", "synthwave"],
   },
-  purge: {
-    content: ['./app/**/*.{js,ts,jsx,tsx}'],
-    options: {
-      safelist: ['theme-transition', 'bg-base-300', 'text-primary']
-    }
-  }
 }

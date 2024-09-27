@@ -3,11 +3,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode client && vite build && npm run compress",
+    "build": "vite build --mode production && npm run build:css",
     "preview": "wrangler pages dev",
     "deploy": "$npm_execpath run build && wrangler pages deploy",
-    "build:css": "tailwindcss -i ./styles.css -o ./app/styles.css --watch",
-    "compress": "find dist -type f -regex '.*\\.\\(js\\|css\\|html\\|svg\\)$' -exec gzip -9 -k {} \\; -exec brotli -9 -k {} \\;"
+    "start": "vite preview --port 8788",
+    "build:css": "tailwindcss -i ./app/styles.css -o ./dist/styles.css"
   },
   "private": true,
   "dependencies": {

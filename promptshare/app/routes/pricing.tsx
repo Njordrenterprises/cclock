@@ -1,7 +1,17 @@
 import { createRoute } from 'honox/factory'
 import Header from '../islands/Header'
 
-const PricingCard = ({ title, price, features }) => (
+interface PricingPlan {
+  title: string;
+  price: string;
+  features: string[];
+}
+
+interface PricingCardProps extends PricingPlan {
+  key: number;
+}
+
+const PricingCard = ({ title, price, features }: PricingCardProps) => (
   <div className="card bg-base-100 shadow-xl transition-all duration-300 ease-in-out hover:scale-105">
     <div className="card-body">
       <h2 className="card-title text-2xl font-bold mb-4">{title}</h2>
@@ -21,7 +31,7 @@ const PricingCard = ({ title, price, features }) => (
 )
 
 export default createRoute((c) => {
-  const pricingPlans = [
+  const pricingPlans: PricingPlan[] = [
     {
       title: "Solopreneur",
       price: "Free for first 40 hours/week",
@@ -57,7 +67,7 @@ export default createRoute((c) => {
   return c.render(
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-1 py-16 mt-16">
+      <main className="flex-1 py-16 mt-4">
         <section className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-center mb-8">Pricing Plans</h1>
           <p className="text-xl text-center mb-12">Pay only for what you use, with 40 free hours per week for solopreneurs!</p>
@@ -68,7 +78,7 @@ export default createRoute((c) => {
           </div>
           <div className="text-center mt-12">
             <p className="text-lg mb-4">All plans come with a 14-day free trial. No credit card required.</p>
-            <a href="/" className="btn btn-primary btn-lg">Start Your Free Trial</a>
+            <a href="/signup" className="btn btn-primary btn-lg">Start Your Free Trial</a>
           </div>
         </section>
       </main>
